@@ -10,6 +10,32 @@ struct Soal_N_Jawaban{
 	char jawaban_d[SIZE];
 };
 
+void SetCursorPosition(int XPos, int YPos) {
+	COORD coord;
+	coord.X = XPos; 
+	coord.Y = YPos;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+void timer(int time, int *flag_ujian){
+	int minutes, seconds;
+	
+	while (time != 0){
+		minutes = time / 60;
+		seconds = time % 60;
+		
+		// adjust cursor position as necessary
+		SetCursorPosition(0, 0);
+		printf("%02d:%02d", minutes, seconds);
+		SetCursorPosition(0, 2);
+		
+		time -= 1;
+		Sleep(1000); // interval 1 detik
+	}
+	
+	*flag_ujian = 0;
+}
+
 // menghitung banyaknya line pada file
 int count_lines(char filename[]){
 	char c;
