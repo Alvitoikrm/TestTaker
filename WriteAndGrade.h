@@ -43,7 +43,7 @@ void write_jawaban(char nama[], int npm, char jawaban_sementara[], float nilai)
 
 
 //fungsi untuk mengecek apakah array jawaban sementara penuh
-bool isFullArray(char jawaban_sementara[])
+bool isFullArray(char jawaban_sementara[], int back)
 {
 	if(back == strlen(jawaban_sementara){
 		return true;
@@ -54,7 +54,7 @@ bool isFullArray(char jawaban_sementara[])
 
 
 //fungsi untuk mengecek apakah array jawaban sementara kosong
-bool isEmptyArray(){
+bool isEmptyArray(int back){
 	if(back == 0){
 		return true;
 	}
@@ -66,7 +66,7 @@ bool isEmptyArray(){
 //fungsi untuk menyimpan jawaban sementara ke jawaban asli
 void enqueueArray(char jawaban_sementara[], char jawaban_asli[], int* front, int* back){
 	int i;
-	if(isFullArray()){
+	if(isFullArray(jawaban, back)){
 		printf("jawaban melebihi batas!\n");
 	}
 	else{
@@ -83,6 +83,19 @@ void enqueueArray(char jawaban_sementara[], char jawaban_asli[], int* front, int
 		}
 	}
 }
-
+//fungsi untuk menghapus jawaban yang telah tersimpan
+void clearArray(char jawaban_sementara[], char jawaban_asli[], int* back){
+	int i;
+	if(isEmptyArray(back)) {
+		printf("jawaban kosong!\n");
+	}
+	else{
+		for(i=0; i < back; i++){
+			strcpy(jawaban_asli[i], "");
+			*back = *back - 1;
+		}
+		
+	}
+}
 
 
