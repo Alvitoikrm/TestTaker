@@ -71,7 +71,7 @@ void enqueueArray(char jawaban_sementara[], char jawaban_asli[], int* front, int
 	}
 	else{
 		for(i=0; i < strlen(jawaban_sementara); i++)
-		if(isEmptyArray()){
+		if(isEmptyArray(back)){ 
 			strcpy(jawaban_asli[i], jawaban_sementara[i]);
 			*front = *front + 1;
 			*back = *back + 1;
@@ -86,7 +86,7 @@ void enqueueArray(char jawaban_sementara[], char jawaban_asli[], int* front, int
 //fungsi untuk menghapus jawaban yang telah tersimpan
 void clearArray(char jawaban_sementara[], char jawaban_asli[], int* back){
 	int i;
-	if(isEmptyArray(back)) {
+	if(isEmptyArray(back)) { 
 		printf("jawaban kosong!\n");
 	}
 	else{
